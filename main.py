@@ -11,9 +11,7 @@ import gridfs
 # mysql part
 import mysql.connector
 db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="0512105121")
+    host="localhost")
 mycusor = db.cursor()
 ####
 # fastapi part html get and post response
@@ -25,8 +23,7 @@ templates = Jinja2Templates(directory="templates")
 ##########
 @app.get("/")
 def root(request: Request):
-    client = MongoClient(
-        "mongodb+srv://pooyaarab:zJMzoHr1fMhOnnHk@cluster0.vwrrya4.mongodb.net/?retryWrites=true&w=majority")
+    client = MongoClient(host="localhost"")
     db = client.test
     fs = gridfs.GridFS(db)
     items = db.items
