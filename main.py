@@ -98,7 +98,7 @@ async def post_items_form(request: Request, title: str = Form(...), description:
     img = await image.read()
     # MOngo db connection
     client = MongoClient(
-        "mongodb+srv://pooyaarab:zJMzoHr1fMhOnnHk@cluster0.vwrrya4.mongodb.net/?retryWrites=true&w=majority")
+        )
     db = client.test
     fs = gridfs.GridFS(db)
 
